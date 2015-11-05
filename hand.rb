@@ -16,24 +16,28 @@ class Hand
 
   def value
     if royal_flush?
-      8
+      80
     elsif straight_flush?
-      7
+      70
     elsif four_of_a_kind?
-      6
+      60
     elsif full_house?
-      5
+      50
     elsif flush?
-      4
+      40
     elsif three_of_a_kind?
-      3
+      30
     elsif two_pairs?
-      2
+      20
     elsif one_pair?
-      1
+      15
     else
-      0
+      high_card.value
     end
+  end
+
+  def high_card
+    cards.last
   end
 
   def one_pair?
