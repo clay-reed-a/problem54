@@ -22,7 +22,7 @@ class Card
   end
 
   def <=>(other)
-    rank <=> other.rank
+    value <=> other.value
   end
 
   def face?
