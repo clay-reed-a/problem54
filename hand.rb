@@ -2,38 +2,10 @@ require_relative 'card'
 
 class Hand
 
-  include Comparable
-
   attr_reader :cards
 
   def initialize cards
     @cards = cards.map { |card| Card.new card }.sort
-  end
-
-  def <=>(other)
-    value <=> other.value
-  end
-
-  def value
-    if royal_flush?
-      80
-    elsif straight_flush?
-      70
-    elsif four_of_a_kind?
-      60
-    elsif full_house?
-      50
-    elsif flush?
-      40
-    elsif three_of_a_kind?
-      30
-    elsif two_pairs?
-      20
-    elsif one_pair?
-      15
-    else
-      high_card.value
-    end
   end
 
   def high_card
